@@ -1,8 +1,9 @@
+import type { cointype } from '@/lib/types';
 import { create } from 'zustand';
 
 type ResultState = {
-  result: { [key: string]: number } | null;
-  setResult: (result: { [key: string]: number } | null) => void;
+  result: cointype[] | null;
+  setResult: (result: cointype[] | null) => void;
   totalAmount: number;
 };
 
@@ -17,6 +18,6 @@ export const useTotalAmount = () => {
     const { result } = state;
     if (!result) return 0;
 
-    return Object.values(result).reduce((acc, cur) => acc + cur, 0);
+    return result.reduce((total, coin) => total + coin.amount, 0);
   });
 };
