@@ -1,5 +1,5 @@
-import type { cointype } from '@/lib/types';
-import { create } from 'zustand';
+import type { cointype } from "@/lib/types";
+import { create } from "zustand";
 
 type ResultState = {
   result: cointype[] | null;
